@@ -10,14 +10,14 @@ router.get("/notes",(req,res) => {
 
 router.post("/notes",(req,res) => {
    //call the post note  function here req.body
-   db.push(req.body);
-    console.log(" very good");
+   api.push(req.body);
+    console.log("trying to push notes");
   });
 
 router.delete("/notes/:id",(req,res) => {
-    //call the delete note function here req.parms.id
+    //call the delete note function here  
     res.json(Notes.find())
-    console.log(" very good");
+    console.log("trying to delete notes");
   });
 
   module.exports = router;
