@@ -10,11 +10,13 @@ router.get("/notes",(req,res) => {
 
 router.post("/notes",(req,res) => {
    //call the post note  function here req.body
+   db.push(req.body);
     console.log(" very good");
   });
 
 router.delete("/notes/:id",(req,res) => {
     //call the delete note function here req.parms.id
+    res.json(Notes.find())
     console.log(" very good");
   });
 
