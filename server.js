@@ -3,12 +3,13 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const router = require("express").Router();
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+var notes = JSON.parse(fs.readFileSync("./db/db.json"));
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
@@ -41,7 +42,7 @@ app.get("/",(req,res) => {
      console.log("trying to push notes");
     });
   
-  app.delete("/notes/:id",(req,res) => {
+  app.delete("/api/notes/:id",(req,res) => {
       //call the delete note function here  
       const del = parseInt(req.params.id);
       console.log("trying to delete notes");  
